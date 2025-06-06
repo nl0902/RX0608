@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>2025年上海希望热线心理健康服务中心十周年庆典</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    html {
+      font-size: 14px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f7fb;
+      color: #333;
+      line-height: 1.5;
+      padding-top: 130px; /* 预留header高度，避免内容被遮挡 */
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background: linear-gradient(135deg, #f06d06, #fbc56d);
+      color: white;
+      text-align: center;
+      padding: 3rem 20px 2rem;
+
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      letter-spacing: 1.5px;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    header p {
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    header nav ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: nowrap;
+    }
+
+    header nav ul li a {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: white;
+      transition: color 0.3s ease;
+      padding: 4px 8px;
+    }
+
+    header nav ul li a:hover {
+      color: #f06d06;
+    }
+
+    section {
+      padding: 40px 15px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    #about {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      margin-bottom: 60px;
+    }
+
+    #about p {
+      font-size: 1rem;
+      color: #555;
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+
+    .btn {
+      background-color: #f06d06;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: 30px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      margin-top: 25px;
+    }
+
+    .btn:hover {
+      background-color: #fbc56d;
+    }
+
+    /* 庆典亮点照片：两列布局 */
+    #highlights {
+      max-width: 900px;
+      margin: 0 auto 60px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 固定两列 */
+      gap: 25px;
+      padding: 0 15px;
+    }
+
+    /* 标题固定 */
+    #highlights h2 {
+      position: sticky;
+      top: 70px; /* 预留header高度 */
+      background: #f4f7fb;
+      padding: 12px 0;
+      margin-bottom: 1.5rem;
+      border-bottom: 3px solid #f06d06;
+      z-index: 100;
+      grid-column: 1 / -1; /* 标题占满两列 */
+    }
+
+    .highlight-item {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .highlight-item img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      display: block;
+    }
+
+    .highlight-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .highlight-item:hover img {
+      transform: scale(1.1);
+    }
+
+    #live {
+      background-color: #fff;
+      padding: 40px 15px;
+      border-radius: 12px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+      max-width: 850px;
+      margin: 0 auto 50px;
+    }
+
+    #live video {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      max-height: 450px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+      font-size: 0.9rem;
+    }
+
+    footer p {
+      font-size: 1rem;
+    }
+
+    /* 响应式 */
+    @media (min-width: 769px) {
+      html {
+        font-size: 15px;
+      }
+
+      header h1 {
+        font-size: 3rem;
+      }
+
+      section h2 {
+        font-size: 2.2rem;
+      }
+
+      #highlights {
+        grid-template-columns: repeat(2, 1fr); /* 保持两列 */
+        gap: 30px;
+      }
+
+      .highlight-item img {
+        height: 220px;
+      }
+
+      .btn {
+        font-size: 1.3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      html {
+        font-size: 14px;
+      }
+
+      header h1 {
+        font-size: 2.4rem;
+      }
+
+      section h2 {
+        font-size: 1.8rem;
+      }
+
+      #about {
+        padding: 2.5rem 1.5rem;
+      }
+
+      .btn {
+        font-size: 1.1rem;
+        padding: 12px 24px;
+      }
+
+      #highlights {
+        grid-template-columns: repeat(2, 1fr); /* 保持两列 */
+        gap: 15px;
+      }
+
+      .highlight-item img {
+        height: 160px;
+      }
+
+      footer p {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      html {
+        font-size: 13px;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      section h2 {
+        font-size: 1.5rem;
+      }
+
+      .btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+
+      #highlights {
+        grid-template-columns: repeat(2, 1fr); /* 手机端保持两列 */
+        gap: 15px;
+      }
+
+      .highlight-item img {
+        height: 130px;
+      }
+
+      footer p {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>2025年上海希望热线心理健康服务中心十周年庆典</h1>
+    <p>携手前行，关注心理健康，共同迈向更美好的明天！</p>
+    <nav>
+      <ul>
+        <li><a href="#about">关于我们</a></li>
+        <li><a href="#highlights">庆典亮点</a></li>
+        <li><a href="#live">直播活动</a></li>
+        <li><a href="#contact">联系我们</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>关于我们</h2>
+    <p>上海希望热线心理健康服务中心自成立以来，一直致力于心理健康教育与服务。我们为社会各界提供心理辅导、心理危机干预等专业服务，为更多人带来心理健康的力量。</p>
+    <button class="btn">了解更多</button>
+  </section>
+
+  <section id="highlights">
+    <h2>庆典亮点</h2>
+    <div class="highlight-item">
+      <img src="https://i.ibb.co/Kd2R9Jm/2025-06-06-17-01-51.png" alt="庆典活动1" />
+    </div>
+    <div class="highlight-item">
+      <img src="https://i.ibb.co/yFPYdf0k/2025-06-06-17-01-44.png" alt="庆典活动2" />
+    </div>
+    <div class="highlight-item">
+      <img src="https://i.ibb.co/GNg1SFS/2025-06-06-17-01-37.png" alt="庆典活动3" />
+    </div>
+    <div class="highlight-item">
+      <img src="https://i.ibb.co/WpMhk4gY/2025-06-06-17-01-31.png" alt="庆典活动4" />
+    </div>
+  </section>
+
+  <section id="live">
+    <h2>实时直播</h2>
+    <video id="live-stream" controls autoplay muted>
+      <source src="live-stream-url.mp4" type="video/mp4" />
+      您的浏览器不支持视频标签。
+    </video>
+  </section>
+
+  <footer id="contact">
+    <p>&copy; 2025 上海希望热线心理健康服务中心. 版权所有.</p>
+  </footer>
+
+</body>
+
+</html>
