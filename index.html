@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>2025年上海希望热线心理健康服务中心十周年庆典</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -23,7 +23,7 @@
       background-color: #f4f7fb;
       color: #333;
       line-height: 1.5;
-      padding-top: 130px; /* 预留header高度，避免内容被遮挡 */
+      padding-top: 130px;
     }
 
     a {
@@ -135,16 +135,15 @@
       padding: 0 15px;
     }
 
-    /* 标题固定 */
     #highlights h2 {
       position: sticky;
-      top: 70px; /* 预留header高度 */
+      top: 70px;
       background: #f4f7fb;
       padding: 12px 0;
       margin-bottom: 1.5rem;
       border-bottom: 3px solid #f06d06;
       z-index: 100;
-      grid-column: 1 / -1; /* 标题占满两列 */
+      grid-column: 1 / -1;
     }
 
     .highlight-item {
@@ -172,20 +171,62 @@
       transform: scale(1.1);
     }
 
-    #live {
-      background-color: #fff;
-      padding: 40px 15px;
-      border-radius: 12px;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-      max-width: 850px;
-      margin: 0 auto 50px;
+    /* 放大图片模态框 */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 99999;
     }
 
-    #live video {
+    .modal-content {
+      max-width: 80%;
+      max-height: 80%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .modal-content img {
       width: 100%;
       height: auto;
-      border-radius: 12px;
-      max-height: 450px;
+    }
+
+    .modal-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .prev-btn {
+      left: 0;
+    }
+
+    .next-btn {
+      right: 0;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 5px;
     }
 
     footer {
@@ -200,101 +241,6 @@
       font-size: 1rem;
     }
 
-    /* 响应式 */
-    @media (min-width: 769px) {
-      html {
-        font-size: 15px;
-      }
-
-      header h1 {
-        font-size: 3rem;
-      }
-
-      section h2 {
-        font-size: 2.2rem;
-      }
-
-      #highlights {
-        grid-template-columns: repeat(2, 1fr); /* 保持两列 */
-        gap: 30px;
-      }
-
-      .highlight-item img {
-        height: 220px;
-      }
-
-      .btn {
-        font-size: 1.3rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      html {
-        font-size: 14px;
-      }
-
-      header h1 {
-        font-size: 2.4rem;
-      }
-
-      section h2 {
-        font-size: 1.8rem;
-      }
-
-      #about {
-        padding: 2.5rem 1.5rem;
-      }
-
-      .btn {
-        font-size: 1.1rem;
-        padding: 12px 24px;
-      }
-
-      #highlights {
-        grid-template-columns: repeat(2, 1fr); /* 保持两列 */
-        gap: 15px;
-      }
-
-      .highlight-item img {
-        height: 160px;
-      }
-
-      footer p {
-        font-size: 0.9rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      html {
-        font-size: 13px;
-      }
-
-      header h1 {
-        font-size: 2rem;
-      }
-
-      section h2 {
-        font-size: 1.5rem;
-      }
-
-      .btn {
-        font-size: 1rem;
-        padding: 10px 20px;
-      }
-
-      #highlights {
-        grid-template-columns: repeat(2, 1fr); /* 手机端保持两列 */
-        gap: 15px;
-      }
-
-      .highlight-item img {
-        height: 130px;
-      }
-
-      footer p {
-        font-size: 0.85rem;
-      }
-    }
   </style>
 </head>
 
@@ -321,19 +267,29 @@
 
   <section id="highlights">
     <h2>庆典亮点</h2>
-    <div class="highlight-item">
+    <div class="highlight-item" onclick="openModal(0)">
       <img src="https://i.ibb.co/Kd2R9Jm/2025-06-06-17-01-51.png" alt="庆典活动1" />
     </div>
-    <div class="highlight-item">
+    <div class="highlight-item" onclick="openModal(1)">
       <img src="https://i.ibb.co/yFPYdf0k/2025-06-06-17-01-44.png" alt="庆典活动2" />
     </div>
-    <div class="highlight-item">
+    <div class="highlight-item" onclick="openModal(2)">
       <img src="https://i.ibb.co/GNg1SFS/2025-06-06-17-01-37.png" alt="庆典活动3" />
     </div>
-    <div class="highlight-item">
+    <div class="highlight-item" onclick="openModal(3)">
       <img src="https://i.ibb.co/WpMhk4gY/2025-06-06-17-01-31.png" alt="庆典活动4" />
     </div>
   </section>
+
+  <!-- 图片放大模态框 -->
+  <div id="imageModal" class="modal">
+    <div class="modal-content">
+      <img id="modalImg" src="" alt="放大查看图片" />
+      <button class="modal-button prev-btn" onclick="changeImage(-1)">&#10094;</button>
+      <button class="modal-button next-btn" onclick="changeImage(1)">&#10095;</button>
+      <button class="close-btn" onclick="closeModal()">关闭</button>
+    </div>
+  </div>
 
   <section id="live">
     <h2>实时直播</h2>
@@ -346,6 +302,44 @@
   <footer id="contact">
     <p>&copy; 2025 上海希望热线心理健康服务中心. 版权所有.</p>
   </footer>
+
+  <script>
+    const images = [
+      "https://i.ibb.co/Kd2R9Jm/2025-06-06-17-01-51.png",
+      "https://i.ibb.co/yFPYdf0k/2025-06-06-17-01-44.png",
+      "https://i.ibb.co/GNg1SFS/2025-06-06-17-01-37.png",
+      "https://i.ibb.co/WpMhk4gY/2025-06-06-17-01-31.png"
+    ];
+    let currentIndex = 0;
+
+    function openModal(index) {
+      currentIndex = index;
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImg");
+
+      modal.style.display = "flex";
+      modalImg.src = images[currentIndex];
+    }
+
+    function changeImage(direction) {
+      currentIndex = (currentIndex + direction + images.length) % images.length;
+      const modalImg = document.getElementById("modalImg");
+
+      modalImg.src = images[currentIndex];
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("imageModal");
+      modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+      const modal = document.getElementById("imageModal");
+      if (event.target === modal) {
+        closeModal();
+      }
+    }
+  </script>
 
 </body>
 
